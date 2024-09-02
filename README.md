@@ -1,9 +1,12 @@
 # NuxtJS модуль/плагин для подключения Yandex.Metrika(Яндекс.Метрика)
 
+Форк https://github.com/rkaliev/nuxtjs-yandex-metrika
+
+Добавлен функционал для использования с publicRuntimeConfig
 ## Установка и настройка модуля/плагина
 
 ```code
-npm i @rkaliev/nuxtjs-yandex-metrika
+npm i @nik7212/nuxt2-yandex-metrika
 ```
 
 Необходимо в nuxt.config.js в секции modules добавить:
@@ -11,7 +14,7 @@ npm i @rkaliev/nuxtjs-yandex-metrika
 ```code
 modules: [
     [
-      '@rkaliev/nuxtjs-yandex-metrika',
+      '@nik7212/nuxt2-yandex-metrika',
       {
         id: 'XXXXXX',
         webvisor: boolean,
@@ -39,7 +42,7 @@ ID Yandex.Metrika(Яндекс.Метрика) можно задать как в
 ```code
 modules: [
     [
-      '@rkaliev/nuxtjs-yandex-metrika',
+      '@nik7212/nuxt2-yandex-metrika',
       {
         ...
         id: 'XXXXXX',
@@ -49,18 +52,27 @@ modules: [
   ],
 ```
 
-либо можно задать переменную в .env файле:
+либо можно задать переменные в publicRuntimeConfig в nuxt.config.js:
 
 ```code
-YM_ID=XXXXXXX
+publicRuntimeConfig: {
+    yandexMetrika: {
+        ...
+        id: 'XXXXXX',
+        ...
+    },
+},
 ```
+
+Поле с которого забирать конфиг можно переопределить в useRuntimeConfig в параметрах модуля.
+
 
 Модуль/Плагин можно запускать в режиме debug, используется mock Yandex.Metrika(Яндекс.Метрика) и происходит вывод в консоль ивентов и параметров:
 
 ```code
 modules: [
     [
-      '@rkaliev/nuxtjs-yandex-metrika',
+      '@nik7212/nuxt2-yandex-metrika',
       {
         ...
         debug: true,
